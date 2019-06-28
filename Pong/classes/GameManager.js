@@ -65,7 +65,6 @@ class GameManager
 				var _this = this;
 				setTimeout(function () //initiates a new round after a 3 second delay
 				{
-					console.log(this.io);
 					_this.io.to(i.toString()).emit('newRound');
 					_this.games[i].newRound();
 				}, 3000);
