@@ -158,7 +158,7 @@ class GameManager
 				
 				if (this.games[i].reset == true)
 				{
-					this.reset(this.games[i]);
+					this.games[i] = new Game(i, this.io);
 				}
 			}
 		}
@@ -173,12 +173,6 @@ class GameManager
 				this.games[i].tick();
 			}
 		}
-	}
-	
-	reset(game)
-	{
-		this.io.to(game.gameID).emit('sendSocketID');
-		this.games[game.gameID] = new Game(game.gameID, this.io);
 	}
 
 	removePlayer(socketID)
