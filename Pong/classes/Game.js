@@ -144,7 +144,6 @@ class Game
 
 					if (this.players[0].score == 11) //if left player reaches the threshold of victory
 					{
-						console.log('gameOver');
 						this.io.to(this.gameID).emit('gameOver', 0);
 						this.endRound();
 					}
