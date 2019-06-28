@@ -37,4 +37,4 @@ You may have to configure your network to allow port forwarding. This applicatio
 Finally, navigate to the root directory of this project in command line and run 'node server.js' to start the server. After doing this, you can usually access it at [localhost:5000](localhost:5000)
 
 ## Test Code
-Test automation was implemented with Mocha, a test framework for Node.js programs. Included is a test suite designed to verify that the server is sending the correct connection responses to the client. A test command can be sent in command line with 'npm test'.
+Test code can be found in the 'test' folder. Tests can be run in command line with 'npm test'. Test automation was implemented with Mocha, a test framework for Node.js programs. I've included a test suite designed to verify that the server is sending the correct connection responses to the client. 
