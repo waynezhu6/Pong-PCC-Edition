@@ -169,7 +169,18 @@ class GameManager
 			}
 		}
 	}
+	
+	reset(game)
+	{
+		this.io.to(game.gameID).emit('sendSocketID');
+		this.games[game.gameID] = new Game(game.gameID, this.io);
+	}
 
+	removePlayer(socketID)
+	{
+		delete this.players[socketID];
+	}
+	
 }
 
 module.exports = GameManager;
