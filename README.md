@@ -23,7 +23,7 @@ This web app is my submission for the PCC Summer Internship. Applicants were ask
 -Real time communication driven by Socket.IO  
 -Test automation with Mocha 
 
--Up to 5 concurrent games, 10 concurrent clients actively playing
+-Up to 5 concurrent games, 10 concurrent clients actively playing  
 -Optimized for mobile, touch friendly
 
 The server uses an authoritative architecture, where every client request must first be validated by the server to keep clients in sync and to prevent cheating. Server reconciliation and lag compensation techniques are implemented to minimize the effects of latency on gameplay.
