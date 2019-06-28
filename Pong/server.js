@@ -39,8 +39,9 @@ setInterval(function () //call a broadcast of game state to clients 15 times a s
 io.on('connection', function (socket) 
 {
 	currentClients += 1;
-	console.log('Connected: ' + currentClients);
-
+	var date = getDate();
+	console.log('Connected: ' + date + ' | ' + currentClients);
+	
 	socket.on('newGame', function () //when player selects new game on splash screen
 	{
 		GM.newGame(socket);
@@ -61,7 +62,8 @@ io.on('connection', function (socket)
 	{
 		GM.disconnected(socket);
 		currentClients -= 1;
-		console.log('Disconnected. ' + currentClients);
+		var date = getDate();
+		console.log('Disconnected: ' + date + ' | ' + currentClients);
     }); 
     
 	socket.on('moveUp', function (timestamp) //upon recieving a request to move paddle up
@@ -83,3 +85,17 @@ io.on('connection', function (socket)
 
     
 });
+
+function getDate()
+{
+	var m = new Date();
+	var dateString =
+		m.getUTCFullYear() + "/" +
+		("0" + (m.getUTCMonth() + 1)).slice(-2) + "/" +
+		("0" + m.getUTCDate()).slice(-2) + " " +
+		("0" + m.getUTCHours()).slice(-2) + ":" +
+		("0" + m.getUTCMinutes()).slice(-2) + ":" +
+		("0" + m.getUTCSeconds()).slice(-2);
+
+	return dateString;
+}
