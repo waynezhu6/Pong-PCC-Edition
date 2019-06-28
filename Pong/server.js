@@ -24,6 +24,7 @@ server.listen(5000, function() {
 const GameManager = require("./classes/GameManager");
 
 var GM = new GameManager(io);
+var currentClients = 0;  //lets me know how many clients are connected right now
 
 setInterval(function () //call an update to game state 60 times a second
 {
@@ -37,8 +38,9 @@ setInterval(function () //call a broadcast of game state to clients 15 times a s
 
 io.on('connection', function (socket) 
 {
-    
-    console.log('Connected: ' + socket.id);
+
+	console.log('Connected: ' + currentClients);
+	currentClients += 1;
 
 	socket.on('newGame', function () //when player selects new game on splash screen
 	{
@@ -59,6 +61,8 @@ io.on('connection', function (socket)
 	socket.on('disconnect', function () //upon a client disconnecting
 	{
 		GM.disconnected(socket);
+		currentClients -= 1;
+		console.log('Disconnected. ' + currentClients);
     }); 
     
 	socket.on('moveUp', function (timestamp) //upon recieving a request to move paddle up
