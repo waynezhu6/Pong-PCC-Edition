@@ -23,27 +23,17 @@ This web app is my submission for the PCC Summer Internship. Applicants were ask
 -Real time communication driven by Socket.IO  
 -Test automation with Mocha 
 
--Up to 5 concurrent games  
--Optimized for mobile
-
+-Up to 5 concurrent games, 10 concurrent clients actively playing
+-Optimized for mobile, touch friendly
 
 The server uses an authoritative architecture, where every client request must first be validated by the server to keep clients in sync and to prevent cheating. Server reconciliation and lag compensation techniques are implemented to minimize the effects of latency on gameplay.
 
 ## Compilation/Deployment Instructions
-If you want to serve everything yourself, I've uploaded the entire folder (without the node modules) to Google Drive [here](https://drive.google.com/open?id=1LY6qULJ3ZC9vJGtbFzrXV4i2JII4aMon).
+If you want to serve everything yourself, you'll need to have Node.js installed on the host computer. Download the entire Pong folder, then unzip the node_modules folder.
 
-Configure your network to allow port forwarding. This application uses port 5000 by default.
-
-You'll need to have Node.js installed on the host computer
-
-npm install the following dependencies to the root directory of the project:  
-1. express  
-2. socket.io  
-3. request  
-4. mocha  
-5. chai
+You may have to configure your network to allow port forwarding. This application uses port 5000 by default.
 
 Finally, navigate to the root directory of this project in command line and run 'node server.js' to start the server
 
 ## Test Code
-Test automation was implemented with Mocha, a test framework for Node.js programs. Included is a test suite designed to verify that the server is sending the correct connection responses to the client.
+Test automation was implemented with Mocha, a test framework for Node.js programs. Included is a test suite designed to verify that the server is sending the correct connection responses to the client. A test command can be sent in command line with 'npm test'.
