@@ -393,7 +393,7 @@ socket.on('gameOver', function (id) //sent by server when the game ends
 	}
 	game.endRound(); //ends the current round
 	game.full = false;
-
+	socket.emit('sendSocketID');
 });
 
 socket.on('worldUpdate', function (data) //server sends clients a snapshot of the game world periodically to keep clients in sync
