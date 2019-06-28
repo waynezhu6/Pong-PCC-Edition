@@ -45,7 +45,6 @@ io.on('connection', function (socket)
 	socket.on('newGame', function () //when player selects new game on splash screen
 	{
 		GM.newGame(socket);
-		console.log('munt');
 	});
 
 	socket.on('cancelNewGame', function () //when player cancels a new game on the splash screen
