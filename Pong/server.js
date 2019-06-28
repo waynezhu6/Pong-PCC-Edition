@@ -38,9 +38,8 @@ setInterval(function () //call a broadcast of game state to clients 15 times a s
 
 io.on('connection', function (socket) 
 {
-
-	console.log('Connected: ' + currentClients);
 	currentClients += 1;
+	console.log('Connected: ' + currentClients);
 
 	socket.on('newGame', function () //when player selects new game on splash screen
 	{
