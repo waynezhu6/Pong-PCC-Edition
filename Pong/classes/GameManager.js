@@ -155,6 +155,11 @@ class GameManager
 			if (this.games[i].full)
 			{
 				this.games[i].update();
+				
+				if (this.games[i].reset == true)
+				{
+					this.reset(this.games[i]);
+				}
 			}
 		}
 	}
