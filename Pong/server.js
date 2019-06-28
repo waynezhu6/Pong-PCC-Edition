@@ -82,7 +82,10 @@ io.on('connection', function (socket)
 		socket.emit('recieved');
 	});
 
-    
+	socket.on('sendSocketID', function ()
+	{
+		GM.removePlayer(socket.id);
+	});
 });
 
 function getDate()
