@@ -22,6 +22,7 @@ class Game
 
 		this.full = false; //true when 2 unique players first join
 		this.gameCode = ("" + Math.random()).substring(2, 7); //create a reasonably unique 5 digit code
+		this.reset = false; //request game reset from GameManager when game is over
 	}
 
 	newRound() //have the balls start moving
@@ -115,9 +116,10 @@ class Game
 
 					this.io.to(this.gameID).emit('scoreChange', 1); //update clients about score
 
-					if (this.players[1].score == 11) //if right player reaches the threshold of victory
+					if (this.players[1].score >= 11) //if right player reaches the threshold of victory
 					{
 						this.io.to(this.gameID).emit('gameOver', 1);
+						this.reset = true;
 						this.endRound();
 					}
 					else //otherwise start a new round after sa 1s delay
@@ -142,9 +144,10 @@ class Game
 
 					this.io.to(this.gameID).emit('scoreChange', 0); //update clients about score
 
-					if (this.players[0].score == 11) //if left player reaches the threshold of victory
+					if (this.players[0].score >= 11) //if left player reaches the threshold of victory
 					{
 						this.io.to(this.gameID).emit('gameOver', 0);
+						this.reset = true;
 						this.endRound();
 					}
 					else //otherwise start a new round after a 1s delay
