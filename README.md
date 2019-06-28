@@ -1,8 +1,9 @@
 # Pong PCC Edition
 
 [Try it out here!](http://99.245.93.208:5000/)
+(But please read about the controls first)
 
-## Controls
+## Controls && Instructions
 
 #### For desktop:  
 W / Arrow Up - move up  
