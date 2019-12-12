@@ -1,7 +1,7 @@
 # Pong PCC Edition
 
-[Try it out here!](http://99.245.93.208:5000/)
-(But please read about the controls first)
+[Try it out here!](https://frozen-eyrie-86066.herokuapp.com/)
+(But please read about the controls first.)
 
 ## Controls && Instructions
 
